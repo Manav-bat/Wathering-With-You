@@ -1,8 +1,8 @@
-const weatherKey = 'Your OpenWeather API KEY Here';
-const timeKey = 'Your Geo Name Api Here';
+const weatherKey = 'dc8e3f9ede014ea6e603de60104ecf57';
+const timeKey = 'manav_was';
 
-const token ='Your Ultra msg Token Here'
-const mobile ="Mobile Number with Country Code"
+const token ='4t1e2xal5rvtwkie'
+const mobile ="917703918022"
 
 const audio = "https://buibuibucket.s3.amazonaws.com/audio/Sunny+Day/Pharrell_Williams_-_Happy_CeeNaija.com_.mp3";
 const message ="Hey love, as the rain falls, it reminds me of your laughter – a beautiful melody. Wish I could be there to dance in the rain with you. Miss you lots ❤❤❤✨"
