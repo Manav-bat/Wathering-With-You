@@ -2,11 +2,11 @@
 
 
 // Define the values for firstPerson, firstLocation, secondPerson, and secondLocation
-var firstPerson = 'Rahul'; // Replace with the actual name
-var firstLocation = 'Delhi, India'; // Replace with the actual location
+var firstPerson = 'Manav'; // Replace with the actual name
+var firstLocation = 'Tokyo ,Japan'; // Replace with the actual location
 
-var secondPerson = 'Vanshika'; // Replace with the actual name
-var secondLocation = 'Chandigarh, India';
+var secondPerson = 'Prachi'; // Replace with the actual name
+var secondLocation = 'Delhi, India';
 
 //name, location, number
 var oneLoc = new Location(firstPerson, firstLocation, 'one'); //first person's name as string, location (City, Country) as string
