@@ -1,5 +1,5 @@
-const weatherKey = 'bd5e378503939ddaee76f12ad7a97608';
-const timeKey = 'manav_was';
+const weatherKey = 'dc8e3f9ede014ea6e603de60104ecf57';
+const timeKey = 'shinzoo_if';
 
 const token ='4t1e2xal5rvtwkie'
 const mobile ="917703918022"
