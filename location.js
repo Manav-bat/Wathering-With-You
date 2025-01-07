@@ -162,7 +162,7 @@ function sendAudio() {
 //get weather data from openweathermap
 function loadWeather(loc, callback) {
 	var xhr = new XMLHttpRequest();
-	var link = 'http://api.openweathermap.org/data/2.5/weather?q=' + loc + '&APPID=' + weatherKey;
+	var link = 'https://api.openweathermap.org/data/2.5/weather?q=' + loc + '&APPID=' + weatherKey;
 
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -212,7 +212,7 @@ function loadWeather(loc, callback) {
 //get time data from geonames
 function loadTime(lon, lat, callback) {
 	var xhr = new XMLHttpRequest();
-	var link = ' http://api.geonames.org/timezoneJSON?lat=' + lat + '&lng=' + lon + '&username=' + timeKey;
+	var link = ' https://api.geonames.org/timezoneJSON?lat=' + lat + '&lng=' + lon + '&username=' + timeKey;
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
 			if (xhr.status == 200) {
