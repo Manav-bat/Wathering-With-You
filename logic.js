@@ -2,10 +2,10 @@
 
 
 // Define the values for firstPerson, firstLocation, secondPerson, and secondLocation
-var firstPerson = 'Manav'; // Replace with the actual name
-var firstLocation = 'Tokyo ,Japan'; // Replace with the actual location
+var firstPerson = 'Spidey'; // Replace with the actual name
+var firstLocation = 'Tokyo, Japan'; // Replace with the actual location
 
-var secondPerson = 'Prachi'; // Replace with the actual name
+var secondPerson = 'Clefairy♡'; // Replace with the actual name
 var secondLocation = 'Delhi, India';
 
 //name, location, number
