@@ -1,4 +1,4 @@
-const weatherKey = 'dc8e3f9ede014ea6e603de60104ecf57';
+const weatherKey = '20813375b673de38735fce816551a59f';
 const timeKey = 'manav_was';
 
 const token ='4t1e2xal5rvtwkie'
