@@ -1,11 +1,11 @@
-const weatherKey = 'dc8e3f9ede014ea6e603de60104ecf57';
+const weatherKey = 'bd5e378503939ddaee76f12ad7a97608';
 const timeKey = 'shinzoo_if';
 
-const token ='4t1e2xal5rvtwkie'
-const mobile ="917703918022"
+const token = '4t1e2xal5rvtwkie'
+const mobile = "917703918022"
 
 const audio = "https://buibuibucket.s3.amazonaws.com/audio/Sunny+Day/Pharrell_Williams_-_Happy_CeeNaija.com_.mp3";
-const message ="Hey love, as the rain falls, it reminds me of your laughter – a beautiful melody. Wish I could be there to dance in the rain with you. Miss you lots ❤❤❤✨"
+const message = "Hey love, as the rain falls, it reminds me of your laughter – a beautiful melody. Wish I could be there to dance in the rain with you. Miss you lots ❤❤❤✨"
 
 
 class Location {
@@ -40,8 +40,8 @@ class Location {
 	}
 
 	//load all data and fill page (uses .bind(this) to retain class context)
-	loadData () {
-		loadWeather(this.location, function(response) {
+	loadData() {
+		loadWeather(this.location, function (response) {
 			this.weatherData = JSON.parse(response);
 
 			if (this.weatherData == null || this.weatherData == '') {
@@ -58,7 +58,7 @@ class Location {
 				this.wind = mpsToKmph(this.weatherData['wind']['speed']);
 
 				//load time data (depends on location, so fetched sequentially after location data)
-				loadTime(this.lon, this.lat, function(response) {
+				loadTime(this.lon, this.lat, function (response) {
 					this.timeData = JSON.parse(response);
 
 					//create tag elements for time data
@@ -121,42 +121,42 @@ class Location {
 
 //-------HELPERS
 
-function sendWhatsapp () {
-	
-        //   Sending Whatsapp Message 
-		var data =  "token="+token+"&to="+mobile+"&body="+message;
+function sendWhatsapp() {
 
-		var xhr = new XMLHttpRequest();
-		xhr.withCredentials = false;
+	//   Sending Whatsapp Message 
+	var data = "token=" + token + "&to=" + mobile + "&body=" + message;
 
-		xhr.addEventListener("readystatechange", function () {
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = false;
+
+	xhr.addEventListener("readystatechange", function () {
 		if (this.readyState === this.DONE) {
 			console.log(this.responseText);
 		}
-		});
+	});
 
-		xhr.open("POST", "https://api.ultramsg.com/instance70153/messages/chat");
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xhr.send(data);
-								
+	xhr.open("POST", "https://api.ultramsg.com/instance70153/messages/chat");
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(data);
+
 
 }
 
 function sendAudio() {
-	var data =  "token="+token+"&to="+mobile+"=&audio="+audio;
+	var data = "token=" + token + "&to=" + mobile + "=&audio=" + audio;
 
-var xhr = new XMLHttpRequest();
-xhr.withCredentials = false;
+	var xhr = new XMLHttpRequest();
+	xhr.withCredentials = false;
 
-xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
-    console.log(this.responseText);
-  }
-});
+	xhr.addEventListener("readystatechange", function () {
+		if (this.readyState === this.DONE) {
+			console.log(this.responseText);
+		}
+	});
 
-xhr.open("POST", "https://api.ultramsg.com/instance70153/messages/audio");
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send(data);
+	xhr.open("POST", "https://api.ultramsg.com/instance70153/messages/audio");
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send(data);
 }
 
 //get weather data from openweathermap
@@ -164,7 +164,7 @@ function loadWeather(loc, callback) {
 	var xhr = new XMLHttpRequest();
 	var link = 'http://api.openweathermap.org/data/2.5/weather?q=' + loc + '&APPID=' + weatherKey;
 
-	xhr.onreadystatechange = function() {
+	xhr.onreadystatechange = function () {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
 			if (xhr.status == 200) {
 				clearTimeout(xmlHttpTimeout);
@@ -172,19 +172,19 @@ function loadWeather(loc, callback) {
 
 				var responseData = JSON.parse(xhr.responseText); // Parse JSON response
 
-    // Access relevant properties
-    var weatherDescription = responseData.weather[0].description;
-    var cityName = responseData.name;
+				// Access relevant properties
+				var weatherDescription = responseData.weather[0].description;
+				var cityName = responseData.name;
 
-    // Use the data as needed
-   
-    console.log('City Name:', cityName);
+				// Use the data as needed
 
-	     if(cityName == "Bengaluru") {
-			console.log('Weather Description:', weatherDescription);
-            sendWhatsapp();
-            sendAudio();
-			 		 }
+				console.log('City Name:', cityName);
+
+				if (cityName == "Bengaluru") {
+					console.log('Weather Description:', weatherDescription);
+					sendWhatsapp();
+					sendAudio();
+				}
 
 				callback(xhr.responseText);
 			}
@@ -203,7 +203,7 @@ function loadWeather(loc, callback) {
 
 	//set timeout
 	var xmlHttpTimeout = setTimeout(ajaxTimeout, 40000);
-	function ajaxTimeout(){
+	function ajaxTimeout() {
 		xhr.abort();
 		callback(null);
 	}
@@ -213,8 +213,7 @@ function loadWeather(loc, callback) {
 function loadTime(lon, lat, callback) {
 	var xhr = new XMLHttpRequest();
 	var link = ' http://api.geonames.org/timezoneJSON?lat=' + lat + '&lng=' + lon + '&username=' + timeKey;
-
-	xhr.onreadystatechange = function() {
+	xhr.onreadystatechange = function () {
 		if (xhr.readyState == XMLHttpRequest.DONE) {
 			if (xhr.status == 200) {
 				clearTimeout(xmlHttpTimeout);
@@ -235,7 +234,7 @@ function loadTime(lon, lat, callback) {
 
 	//set timeout
 	var xmlHttpTimeout = setTimeout(ajaxTimeout, 40000);
-	function ajaxTimeout(){
+	function ajaxTimeout() {
 		xhr.abort();
 		callback(null);
 	}
@@ -259,7 +258,7 @@ function formatTime(s) {
 }
 
 function deg2rad(deg) {
-  return deg * (Math.PI/180)
+	return deg * (Math.PI / 180)
 }
 
 //create and append tag element
